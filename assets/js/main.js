@@ -9,16 +9,19 @@ Bonus:
 Invece di usare prompt e allerte usate inputs ed elementi della 
 dom per mostrare a schermo il risultato.*/
 
-// ----STEP 1 ----//
+// ----STEP 1 ----//  Math.round(Math.random generiamo un ciclo for
 //Visualizzare in pagina 5 numeri casuali.
 
-function casuale() {
-  num = Math.round(Math.random() * 4) + 1;
-  document.getElementById("casuale").innerHTML = "Numero casuale " + num;
+for (let i = 0; i < 5; i++) {
+  const numeroCasuale = Math.floor(Math.random() * 100) + 1;
+  const nuovoElemento = document.createElement("li");
+  nuovoElemento.innerText = numeroCasuale;
+  document.getElementById("numeri").appendChild(nuovoElemento);
 }
 
-// ----STEP 2 ----//
+// ----STEP 2 ----//  setTimeout
 // Da lì parte un timer di 30 secondi. /*
+setTimeout("alert('timer')", 3000);
 
 // ----STEP 3 ----//
 // Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta,
