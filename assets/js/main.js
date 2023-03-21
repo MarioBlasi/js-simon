@@ -3,7 +3,6 @@ Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta,
  i numeri che ha visto precedentemente, tramite il prompt().
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei
 numeri da indovinare sono stati individuati.
-
 Bonus:
 Invece di usare prompt e allerte usate inputs ed elementi della 
 dom per mostrare a schermo il risultato.*/
@@ -14,24 +13,25 @@ dom per mostrare a schermo il risultato.*/
 // Genera 5 numeri casuali e visualizzali nella pagina
 
 let numeri = [];
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 2; i++) {
   numeri.push(Math.floor(Math.random() * 100));
 }
 document.getElementById("numeri").innerHTML = numeri.join(", ");
 
 // ----STEP 2 ----//  setTimeout
 // Da lì parte un timer di 30 secondi.
-
 // Dopo 30 secondi, rimuovi i numeri dalla pagina
 setTimeout(function () {
   let numeriIndovinati = [];
+  let numeriInseriti = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 2; i++) {
     let input = prompt("Inserisci il " + (i + 1) + " numero che hai visto:");
     let numero = parseInt(input);
 
     if (!isNaN(numero)) {
       numeri.push(numero);
+
       if (numeri.includes(numero)) {
         numeriIndovinati.push(numero);
       }
@@ -40,14 +40,17 @@ setTimeout(function () {
       i--;
     }
   }
-  // usiamo if and else quanti e quali numeri sono stati in dovinati con 2 alert
-  if (numeriIndovinati.length === 0) {
-    alert(" NON hai indovinato");
-  } else {
-    numeriIndovinati.length + numeriIndovinati;
-    alert("HAI indovinato");
-  }
+  // il software dice quanti e quali deinumeri da indovinare sono stati individuati.
+  let risultato =
+    "Hai inserito i numeri: " + numeriInseriti.join(", ") + "<br>";
+  risultato +=
+    "Hai indovinato " +
+    numeriIndovinati.length +
+    " numeri: " +
+    numeriIndovinati.join(", ");
+  document.getElementById("risultato").innerHTML = risultato;
 }, 3000);
+
 // utilizziamo parseInt per convertire il testo dell utente in un numero
 // dopodiché useremo if and else  con iSNAN per vedere se quello che e stato inserito sia un numero valido
 //----STEP 3 ----//
