@@ -32,16 +32,20 @@ setTimeout(function () {
 
     if (!isNaN(numero)) {
       numeri.push(numero);
+      if (numeri.includes(numero)) {
+        numeriIndovinati.push(numero);
+      }
     } else {
       alert("Inserisci un numero valido!");
       i--;
     }
   }
   // usiamo if and else quanti e quali numeri sono stati in dovinati con 2 alert
-  if(){
-
-  }else{
-    
+  if (numeriIndovinati.length === 0) {
+    alert(" NON hai indovinato");
+  } else {
+    numeriIndovinati.length + numeriIndovinati;
+    alert("HAI indovinato");
   }
 }, 3000);
 // utilizziamo parseInt per convertire il testo dell utente in un numero
